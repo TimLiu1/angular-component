@@ -1,0 +1,40 @@
+<!--函数回调  -->
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <title>angular-component</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.5.5/angular.min.js"></script>
+</head>
+
+<body ng-controller="appCtrl">
+    <input type="text" ng-model="name" />
+    <hello-world call-step="dealStep($event)"></hello-world>
+</body>
+<script>
+    angular.module("app", []).component("helloWorld", {
+        template: "<button ng-click='step($event)'>回调</button> ",
+        bindings: { name: '=',callStep:"&" },
+        controller: function ($scope) {
+            var vm = this;
+            $scope.step = function () {
+                console.log('234')
+                vm.callStep({
+                    $event: {
+                        name: 'lisa'
+                    }
+                });
+            }
+        }
+    }).controller("appCtrl", function ($scope) {
+        $scope.name = "tim";
+        $scope.dealStep = function (event) {
+            console.log('2345',event)
+            $scope.name = event.name;
+            console.log('ok');
+        }
+    })
+
+</script>
+</html>
