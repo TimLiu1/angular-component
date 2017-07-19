@@ -2,7 +2,18 @@
 
 ###### angular1.5 component组件设计思想
 
-angular1.5中的component组件是为了能够平稳过渡到angular2加入的新组件。也就是为了让前端更组件化，权责更清晰，首先我们来简单的创建一个组件
+
+
+angular1.5中的component组件是为了能够平稳过渡到angular2加入的新组件。也就是为了让前端更组件化，权责更清晰。
+
+- [创建组件](#创建组件)
+- [传输字符串到子组件](#传输字符串到子组件)
+- [Installation](#installation)
+- [Getting started](#getting-started)
+- [Contributing](#contributing)
+
+###### 创建组件
+首先我们来简单的创建一个组件
 ```
 angular.module("app", [])
   .component("helloWorld",{
@@ -16,9 +27,7 @@ angular.module("app", [])
 ```
 这样页面就会出现Hello world
 
-如果一个单页面运用含有几个组件时，子组件需要和父组件通信，通信一共包含以下几种场景
-- 传输字符串到子组件：
-
+###### 传输字符串到子组件
 ```
 <!-- 字符串传输给子组件 -->
 <!DOCTYPE html>
